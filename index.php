@@ -106,23 +106,46 @@
         }  
         echo "<br><br>";*/
 
-        $notafinal = 6;
+        /*$notafinal = 6;
         if($notafinal >= 7){
             echo "Aprovado";
         } elseif ($notafinal >= 5) {
             echo "Prova Final";
         } else {
             echo "Reprovado";
-        }
-        
+        }*/
 
-
-
-
-
-    ?> 
+     
     
+    ?> 
+    <!--<form action="" method="GET">
+        <input type="text" name="campoNome" placeholder="Digite seu nome">
+        <input type="text" name="campoIdade" placeholder="Digite sua idade">
+        <br><br>
+        <button type="submit">Enviar</button>
+    </form>-->
+    <?php
+    /*if(isset($_GET['campoNome'])) {
+        $nome = $_GET['campoNome'];
+        $idade = $_GET['campoIdade'];
+        echo "$nome e $idade";
+    }*/
+    ?>
 
+<form action="receber_post.php" method="POST">
+        <input type="text" name="campoNome" placeholder="Digite seu nome">
+        <input type="text" name="campoIdade" placeholder="Digite sua idade">
+        <br><br>
+        <button type="submit">Enviar</button>
+    </form>
+    <?php
+    if(isset($_POST['campoNome'])) {
+        $nome = $_POST['campoNome'];
+        $idade = $_POST['campoIdade'];
+        echo "$nome e $idade";
+    }
+    ?>
+   
 
    <scrip src= "JS/script.js"></script> 
 </body>
