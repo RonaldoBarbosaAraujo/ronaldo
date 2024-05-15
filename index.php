@@ -28,7 +28,7 @@
         /*$Calendario2024 = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];*/
 
         //$Calendario2024[4] = "Agosto";
-       // echo $Calendario2024[4];
+           //echo $Calendario2024[4];
     
        
 
@@ -57,7 +57,7 @@
             echo "6 x $x = $resultado <br>";
         }*/
 
-        $x = 2;
+        /*$x = 2;
         $y = 3;
         $soma = $x + $y;
         echo $resultado = $soma* $x; 
@@ -96,20 +96,24 @@
             $resultado = $x*4;
             echo "4 x $x = $resultado <br>";
         }
-        echo "<br><br>"
+        echo "<br><br>";
 
+        $numero = 19;
+        if($numero % 2 == 0){
+            echo "Par";
+        } else {
+            echo "Impar";
+        }  
+        echo "<br><br>";*/
 
-
-
-
-        
-
-        
-
-
-    
-
-
+        $notafinal = 6;
+        if($notafinal >= 7){
+            echo "Aprovado";
+        } elseif ($notafinal >= 5) {
+            echo "Prova Final";
+        } else {
+            echo "Reprovado";
+        }
         
 
 
