@@ -132,21 +132,23 @@
     }*/
     ?>
 
-<form action="receber_post.php" method="POST">
+    <form action="receber_post.php" method="GET">
+        <label for="camponome">Nome</label>
         <input type="text" name="campoNome" placeholder="Digite seu nome">
+        <label for="camponome">Idade</label>
         <input type="text" name="campoIdade" placeholder="Digite sua idade">
         <br><br>
         <button type="submit">Enviar</button>
     </form>
     <?php
-    if(isset($_POST['campoNome'])) {
-        $nome = $_POST['campoNome'];
-        $idade = $_POST['campoIdade'];
+    if(isset($_GET['campoNome'])) {
+        $nome = $_GET['campoNome'];
+        $idade = $_GET['campoIdade'];
         echo "$nome e $idade";
     }
     ?>
    
 
-   <scrip src= "JS/script.js"></script> 
+ <scrip src= "JS/script.js"></script> 
 </body>
 </html>
