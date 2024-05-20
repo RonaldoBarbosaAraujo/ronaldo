@@ -116,7 +116,7 @@
      ?>
 
      <h1>Validação de Foprmulário</h1>
-     <form action="" method="POST">
+     <form action="" method="POST" novalidate>
       <label for="camponome">Nome:</label><br>
       <input type="text" class="form-control <?php if(isset($erroNome)){if($erroNome != "Nenhum"){echo "is-invalid";}}?>" name="campoNome">
       <div class="invalid-feedback">
@@ -131,7 +131,7 @@
       </div>
       <br>
       <label for="campoemail">Email <i class="mdi mdi-information-outline" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="campo obrigatorio"></i></label><br>
-      <input type="email" class="form-control <?php if(isset($erroEmail)){ if($erroEmail != "Nenhum"){ echo "is-invalid";}}?>" novalidate name="campoEmail">
+      <input type="email" class="form-control <?php if(isset($erroEmail)){ if($erroEmail != "Nenhum"){ echo "is-invalid";}}?>" name="campoEmail">
       <div class="invalid-feedback">
       <?php
         if(isset($erroEmail)){
