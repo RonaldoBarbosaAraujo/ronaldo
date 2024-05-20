@@ -63,30 +63,109 @@
      }*/
      
      ?>
+     <?php
+         if($_SERVER['REQUEST_METHOD'] == "POST"){
+          $nome = $_POST['campoNome'];
+          $email = $_POST['campoEmail'];
+          $senha = $_POST['camposenha'];
+          $confirmarsenha = $_POST['campoconfirmarsenha'];
+         
+         if(empty($nome)){
+          $erroNome = "por favor, informe um nome";
+         } else {
+          if (!preg_match("/^[a-zA-Z-' ]*$/",$nome)) {
+            $erroNome = "Digite um nome válido";
+          } else {
+            $erroNome = "Nenhum";
+          }
+         }
+         if(empty($email)){
+          $erroEmail = "por favor, informe um email";
+         } else {
+          if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
+            $erroEmail = "Digite um email válido";
+          } else {
+            $erroNome = "Nenhum";
+          }
+         }
+
+
+         if(empty($senha)){
+          $erroSenha = "por favor, informe um senha";
+         } else {
+         if(strlen($senha) <6){
+           $erroSenha = "por favor, informe uma senha com seis digitos ou mais"; 
+        }else {
+            $erroSenha = "Nenhum";
+         }
+        }
+
+        if(empty($confirmarsenha)){
+          $erroconfirmarsenha = "por favor, repetir a senha";
+         } else {
+         if ($confirmarsenha != $senha) {
+           $erroconfirmarsenha = "as senhas precisam ser iguais"; 
+        }else {
+            $erroconfirmarsenha = "Nenhum";
+         }
+        }
+      }
+    
+
+
+     ?>
+
      <h1>Validação de Foprmulário</h1>
-     <form action="">
+     <form action="" method="POST">
       <label for="camponome">Nome:</label><br>
-      <input type="text" class="form-control is-invalid" name="campoNome">
+      <input type="text" class="form-control <?php if(isset($erroNome)){if($erroNome != "Nenhum"){echo "is-invalid";}}?>" name="campoNome">
       <div class="invalid-feedback">
-        Please select a valid state.
+      <?php
+        if(isset($erroNome)){
+            if($erroNome != "Nenhum"){
+              echo $erroNome;
+            }
+
+        }
+        ?>
       </div>
       <br>
       <label for="campoemail">Email <i class="mdi mdi-information-outline" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="campo obrigatorio"></i></label><br>
-      <input type="email" class="form-control is-invalid" name="campoEmail">
+      <input type="email" class="form-control <?php if(isset($erroEmail)){ if($erroEmail != "Nenhum"){ echo "is-invalid";}}?>" novalidate name="campoEmail">
       <div class="invalid-feedback">
-        Please select a valid state.
+      <?php
+        if(isset($erroEmail)){
+            if($erroEmail != "Nenhum"){
+              echo $erroEmail;
+            }
+          }
+        ?>
       </div>
       <br>
+      <div>
       <label for="camposenha">Senha:</label><br>
-      <input type="password" class="form-control is-invalid" name="campoSenha">
+      <input type="password" class="form-control <?php if(isset($erroSenha)){ if($erroSenha!= "Nenhum"){ echo "is-invalid";}} ?>" name="camposenha">
       <div class="invalid-feedback">
-        Please select a valid state.
+      <?php
+        if(isset($erroSenha)){
+            if($erroSenha != "Nenhum"){
+              echo $erroSenha;
+            }
+          }
+          ?>
       </div>
       <br>
-      <label for="campoconfirmarsenha">Confirmar Senha:</label><br>
-      <input type="password" class="form-control is-invalid" name="campoConfirmarsenha">
+      <label for="campoconfirmarsenha">Confirmar Senha:</label> <br>
+      <input type="password" class="form-control <?php if(isset($erroconfirmarsenha)){if($erroconfirmarsenha != "Nenhum"){ echo "is-invalid";}}
+        ?>" name="campoconfirmarsenha">
       <div class="invalid-feedback">
-        Please select a valid state.
+      <?php
+      if(isset($erroconfirmarsenha)){
+          if($erroconfirmarsenha != "Nenhum"){
+            echo $erroconfirmarsenha;
+          }
+        }
+        ?>
       </div>
       <br><br>
       <button type="submit">Enviar <i class="mdi mdi-send"></i></button>
