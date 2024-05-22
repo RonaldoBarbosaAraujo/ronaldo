@@ -64,7 +64,7 @@
      
      ?>
      <?php
-         if($_SERVER['REQUEST_METHOD'] == "POST"){
+         /*if($_SERVER['REQUEST_METHOD'] == "POST"){
           $nome = $_POST['campoNome'];
           $email = $_POST['campoEmail'];
           $senha = $_POST['camposenha'];
@@ -115,7 +115,7 @@
 
      ?>
 
-     <h1>Validação de Foprmulário</h1>
+     <h1>Validação de Formulário</h1>
      <form action="" method="POST" novalidate>
       <label for="camponome">Nome:</label><br>
       <input type="text" class="form-control <?php if(isset($erroNome)){if($erroNome != "Nenhum"){echo "is-invalid";}}?>" name="campoNome">
@@ -186,5 +186,7 @@
       const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
       const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap. Tooltip (tooltipTriggerEl))
    </script>
+
+
  </body>
 </html>
