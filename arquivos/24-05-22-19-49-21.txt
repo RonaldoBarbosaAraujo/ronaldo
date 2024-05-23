@@ -1,3 +1,0 @@
-Texto teste utilizando comandos PHP
-Outro texto
-Mais um texto criado utilando comandos PHP

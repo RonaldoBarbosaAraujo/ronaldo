@@ -13,7 +13,7 @@
             mkdir($pasta, 0755);
         }
         //codigo para criar arquivo e texto utilizando comandos PHP
-        $nomearquivo = "meu-documento.txt";
+        /*$nomearquivo = "meu-documento.txt";
         $arquivo = fopen($pasta.$nomearquivo, 'a+');
         fwrite($arquivo, 'Linha 1'.PHP_EOL);
         fwrite($arquivo, 'Linha 2'.PHP_EOL);
@@ -29,6 +29,37 @@
                 echo fgets($abrirarquivo)."<br>"; 
             }
         }
+        //apagar pasta
+        if(is_dir($pasta)){
+            foreach(scandir($pasta) as $lixo){
+                $caminho = $pasta.$lixo;
+                if(is_file($caminho)){
+                    unlink($pasta.$lixo);
+                }
+            }
+            rmdir($pasta);
+        }
+        //imprimir data
+        $dataAgora = date("y-m-d");
+        $horaAgora = date("H:i:s");
+        echo "$dataAgora $horaAgora";*/
+
+
+      //codigo de calculos de vencimento de boleto
+        $hoje = "2024-06-17";
+        $vencimento = "2024-06-17";
+
+        $diferença = strtotime($vencimento) - strtotime($hoje);
+        $AteVencimento = floor($diferença) / (60*60*24);
+            if($AteVencimento > 0){
+            echo "Seu boleto vencerá em $AteVencimento dias";
+          } elseif($AteVencimento < 0){
+            $valor = $AteVencimento * (-1);
+            echo "Seu boleto venceu à $valor dias";
+          }else {
+            echo "Se ferrou! O boleto vence hoje";
+          }
+
 
 
 

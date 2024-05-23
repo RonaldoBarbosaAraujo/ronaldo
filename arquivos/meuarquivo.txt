@@ -1,7 +1,0 @@
-Texto teste utilizando comandos PHP
-Outro texto
-Mais um texto criado utilando comandos PHP
-Texto teste utilizando comandos PHP
-Outro texto
-Mais um texto criado utilando comandos PHP
-Criado utilando comandos PHP
